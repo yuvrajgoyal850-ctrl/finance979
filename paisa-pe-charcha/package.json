@@ -1,0 +1,25 @@
+{
+  "name": "paisa-pe-charcha",
+  "version": "1.0.0",
+  "description": "Paisa Pe Charcha - The Royal Indian Financial Intelligence Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test-handler.js && node test-reasoning.js"
+  },
+  "keywords": [
+    "finance",
+    "india",
+    "ai",
+    "financial-assistant",
+    "calculators",
+    "tax-calculator",
+    "government-schemes",
+    "rbi",
+    "sebi",
+    "market-insights"
+  ],
+  "author": "Paisa Pe Charcha Team",
+  "license": "ISC"
+}

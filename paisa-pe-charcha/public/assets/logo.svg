@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEEAC" />
+      <stop offset="35%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#AA771C" />
+      <stop offset="100%" stop-color="#F2C75C" />
+    </linearGradient>
+    <linearGradient id="saffronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9933" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081A36" />
+      <stop offset="100%" stop-color="#020914" />
+    </linearGradient>
+    <filter id="royalGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Royal Crest Shield Icon -->
+  <g transform="translate(15, 10)">
+    <!-- Outer Shield Background -->
+    <path d="M50 5 L85 18 C85 55 68 85 50 95 C32 85 15 55 15 18 Z" fill="url(#navyGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <path d="M50 10 L80 22 C80 52 65 79 50 88 C35 79 20 52 20 22 Z" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="2 2" opacity="0.7" />
+
+    <!-- Ashoka Chakra Motif (24 spokes simplified for crisp display) -->
+    <circle cx="50" cy="46" r="22" fill="none" stroke="url(#goldGrad)" stroke-width="1.8" />
+    <circle cx="50" cy="46" r="5" fill="url(#goldGrad)" />
+    <g stroke="url(#goldGrad)" stroke-width="1.2">
+      <line x1="50" y1="24" x2="50" y2="68" />
+      <line x1="28" y1="46" x2="72" y2="46" />
+      <line x1="34.4" y1="30.4" x2="65.6" y2="61.6" />
+      <line x1="34.4" y1="61.6" x2="65.6" y2="30.4" />
+      <line x1="41.6" y1="25.6" x2="58.4" y2="66.4" />
+      <line x1="58.4" y1="25.6" x2="41.6" y2="66.4" />
+      <line x1="29.6" y1="37.6" x2="70.4" y2="54.4" />
+      <line x1="29.6" y1="54.4" x2="70.4" y2="37.6" />
+    </g>
+
+    <!-- Top Crown / Kalash Motif -->
+    <path d="M42 4 Q50 -2 58 4 Q55 8 50 7 Q45 8 42 4 Z" fill="url(#goldGrad)" />
+    <!-- Saffron & Emerald Accent Dots -->
+    <circle cx="36" cy="19" r="2.5" fill="#FF9933" />
+    <circle cx="64" cy="19" r="2.5" fill="#138808" />
+  </g>
+
+  <!-- Typography: PAISA PE CHARCHA -->
+  <g transform="translate(120, 20)">
+    <!-- Hindi Subtitle -->
+    <text x="0" y="22" font-family="'Cinzel', 'Noto Serif Devanagari', 'Georgia', serif" font-size="12" font-weight="700" fill="url(#saffronGrad)" letter-spacing="3">
+      पैसा पे चर्चा • वित्तीय बुद्धिमत्ता
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="55" font-family="'Cinzel', 'Playfair Display', 'Times New Roman', serif" font-size="30" font-weight="800" fill="url(#goldGrad)" letter-spacing="2">
+      PAISA PE CHARCHA
+    </text>
+
+    <!-- Tagline -->
+    <text x="0" y="74" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11.5" font-weight="500" fill="#E2E8F0" letter-spacing="1">
+      YOUR INTELLIGENT PARTNER IN FINANCIAL DECISIONS
+    </text>
+
+    <!-- Gold Accent Line -->
+    <line x1="0" y1="83" x2="280" y2="83" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.8" />
+    <circle cx="280" cy="83" r="2" fill="#D4AF37" />
+  </g>
+</svg>

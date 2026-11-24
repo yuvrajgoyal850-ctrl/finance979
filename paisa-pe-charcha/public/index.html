@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Paisa Pe Charcha | The Royal Indian Financial Intelligence Platform</title>
+  <meta name="description" content="Paisa Pe Charcha is an independent AI-powered financial intelligence and education platform designed with the dignity of Indian institutions to help you master taxes, investments, schemes, and financial decisions.">
+  <link rel="icon" type="image/svg+xml" href="assets/chakra.svg">
+
+  <!-- Google Fonts: Cinzel (Royal Serif) + Playfair Display + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 (CDN with fallback) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Chart.js 4 for High-Performance Financial Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. TOP STATUTORY NOTICE & CITIZEN HELPLINE BAR
+       ========================================================================= -->
+  <aside class="top-notice-bar" aria-label="Statutory Notice and National Helplines">
+    <div style="display:flex; align-items:center;">
+      <span class="notice-badge">Independent Platform</span>
+      <span>Paisa Pe Charcha is an independent private AI financial research & education initiative.</span>
+    </div>
+    <div class="helpline-links">
+      <span><i class="fa-solid fa-phone-volume text-gold-gradient"></i> National Cyber Crime: <strong>1930</strong></span>
+      <span><i class="fa-solid fa-shield-halved text-emerald"></i> RBI Sachet / SEBI SCORES</span>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. WEBSITE HEADER & ROYAL NAVIGATION BAR
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Royal Emblem & Brand Name -->
+      <a href="#hero" class="brand-logo-container" aria-label="Paisa Pe Charcha Home">
+        <img src="assets/logo.svg" alt="Paisa Pe Charcha Royal Crest" class="brand-emblem" width="52" height="52">
+        <div class="brand-text">
+          <span class="brand-devanagari">पैसा पे चर्चा</span>
+          <span class="brand-title">PAISA PE CHARCHA</span>
+          <span class="brand-subtitle">Your Intelligent Partner in Financial Decisions</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#ai-assistant" class="nav-link">AI Financial Assistant</a>
+        <a href="#calculators" class="nav-link">Financial Tools</a>
+        <a href="#knowledge-centre" class="nav-link">Learn Finance</a>
+        <a href="#government-schemes" class="nav-link">Government Schemes</a>
+        <a href="#market-insights" class="nav-link">Market Insights</a>
+        <a href="#about" class="nav-link">About Us</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button class="btn-royal-ai" onclick="PPC_OpenAIWithPrompt('')" aria-label="Open AI Financial Terminal">
+          <span class="ai-pulse-dot"></span>
+          <span>Talk to AI</span>
+          <i class="fa-solid fa-robot"></i>
+        </button>
+        <button class="btn-outline-gold open-auth-modal-btn" aria-label="Open Login Dialog">
+          <i class="fa-solid fa-lock"></i>
+          <span>Login / Register</span>
+        </button>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(212,175,55,0.25); padding-bottom:18px; margin-bottom:24px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/logo.svg" alt="Paisa Pe Charcha" style="width:36px; height:36px;">
+        <span style="font-family:var(--font-royal); font-weight:800; color:#D4AF37; font-size:1.1rem;">PAISA PE CHARCHA</span>
+      </div>
+      <button id="closeDrawerBtn" style="background:none; border:none; color:#CBD5E1; font-size:1.4rem; cursor:pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav style="display:flex; flex-direction:column; gap:14px; margin-bottom:30px;">
+      <a href="#hero" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">Home</a>
+      <a href="#ai-assistant" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">AI Financial Assistant</a>
+      <a href="#calculators" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">Financial Tools (10 Calculators)</a>
+      <a href="#knowledge-centre" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">Learn Finance (Knowledge Centre)</a>
+      <a href="#government-schemes" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">Government Schemes</a>
+      <a href="#market-insights" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">Market Insights Dashboard</a>
+      <a href="#about" class="mobile-nav-link" style="color:#FFF; font-weight:600; font-size:1.05rem; padding:8px 0;">About Us</a>
+    </nav>
+
+    <div style="display:flex; flex-direction:column; gap:12px; margin-top:auto;">
+      <button class="btn-royal-ai" onclick="PPC_OpenAIWithPrompt(''); closeDrawer();" style="width:100%; justify-content:center;">
+        <span class="ai-pulse-dot"></span>
+        <span>Launch AI Financial Terminal</span>
+      </button>
+      <button class="btn-outline-gold open-auth-modal-btn" style="width:100%; text-align:center;">
+        <i class="fa-solid fa-lock"></i> Login / Register
+      </button>
+      <button class="btn-outline-gold open-api-key-btn" style="width:100%; text-align:center; font-size:0.75rem;">
+        <i class="fa-solid fa-key"></i> External AI API Settings
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       3. LIVE FINANCIAL TICKER STRIP (NIFTY 50, SENSEX, GOLD, SILVER)
+       ========================================================================= -->
+  <div class="market-ticker-strip" aria-label="Live Market Indices Ticker">
+    <div class="ticker-track" id="marketTickerTrack">
+      <!-- Injected via market.js -->
+      <div class="ticker-item"><span class="ticker-name">NIFTY 50</span><span class="ticker-val">₹23,914.15</span><span class="ticker-badge positive">+148.60 (+0.63%)</span></div>
+      <div class="ticker-item"><span class="ticker-name">BSE SENSEX</span><span class="ticker-val">₹78,922.40</span><span class="ticker-badge positive">+482.30 (+0.62%)</span></div>
+      <div class="ticker-item"><span class="ticker-name">NIFTY BANK</span><span class="ticker-val">₹51,240.80</span><span class="ticker-badge positive">+312.45 (+0.61%)</span></div>
+      <div class="ticker-item"><span class="ticker-name">Gold 24K (10g)</span><span class="ticker-val">₹77,450</span><span class="ticker-badge positive">+220 (+0.28%)</span></div>
+      <div class="ticker-item"><span class="ticker-name">Silver (1kg)</span><span class="ticker-val">₹91,800</span><span class="ticker-badge negative">-350 (-0.38%)</span></div>
+      <div class="ticker-item"><span class="ticker-name">USD / INR</span><span class="ticker-val">₹84.42</span><span class="ticker-badge positive">+0.04</span></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       4. HERO SECTION (ROYAL INDIAN FINANCIAL INTELLIGENCE)
+       ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <canvas id="heroParticleCanvas" class="hero-particle-canvas"></canvas>
+
+    <div class="container hero-grid">
+      <!-- Left Column: Royal Headline & Call to Actions -->
+      <div class="hero-content-column">
+        <div class="hero-badge-pill">
+          <span class="emblem-dot"></span>
+          <span>THE ROYAL INDIAN FINANCIAL INTELLIGENCE PLATFORM</span>
+        </div>
+
+        <h1 class="hero-headline">
+          SMARTER FINANCIAL DECISIONS.<br>
+          <span class="gold-highlight">STRONGER FINANCIAL FUTURE.</span>
+        </h1>
+
+        <p class="hero-supporting">
+          Experience the power of Artificial Intelligence to understand money, plan investments, explore financial opportunities, and make smarter financial decisions.
+        </p>
+
+        <div class="hero-buttons-group">
+          <a href="#ai-assistant" class="btn-hero-primary" onclick="PPC_OpenAIWithPrompt('')">
+            <i class="fa-solid fa-comments"></i>
+            <span>START CHATTING WITH AI</span>
+          </a>
+          <a href="#calculators" class="btn-hero-secondary">
+            <i class="fa-solid fa-calculator"></i>
+            <span>EXPLORE FINANCIAL TOOLS</span>
+          </a>
+        </div>
+
+        <!-- Trust & Authority Stats -->
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <h4>10+</h4>
+            <p>Smart Financial Tools</p>
+          </div>
+          <div class="hero-stat-card">
+            <h4>100%</h4>
+            <p>Objective Advisory</p>
+          </div>
+          <div class="hero-stat-card">
+            <h4>Zero</h4>
+            <p>Data Compromise</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Royal AI Financial Command Center Visual -->
+      <div class="hero-visual-card">
+        <div class="terminal-header-strip">
+          <div class="terminal-title-group">
+            <div class="terminal-dots">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <span class="terminal-badge"><i class="fa-solid fa-shield-halved text-gold-gradient"></i> AI Financial Terminal</span>
+          </div>
+          <span style="font-size:0.75rem; color:#94A3B8;"><i class="fa-solid fa-bolt text-saffron"></i> Sub-second Response</span>
+        </div>
+
+        <div class="hero-ai-preview">
+          <div class="ai-bubble-preview user-bubble">
+            <p><i class="fa-solid fa-user" style="margin-right:6px; color:#FF7722;"></i> "Should I switch to the New Tax Regime if I earn ₹12 Lakhs?"</p>
+          </div>
+          <div class="ai-bubble-preview bot-bubble">
+            <p><i class="fa-solid fa-building-columns" style="margin-right:6px; color:#D4AF37;"></i> <strong>Paisa Pe Charcha AI:</strong> "Under Section 115BAC with the ₹75,000 standard deduction, your tax in the New Regime is ₹83,200. Unless your deductions under 80C, 80D, and HRA exceed ₹3,75,000, the New Regime saves you up to ₹24,000 in net tax!"</p>
+          </div>
+        </div>
+
+        <div class="ai-chips-preview">
+          <span class="chip-tag"><i class="fa-solid fa-check text-emerald"></i> FY 24-25 / 25-26 Tax Slabs</span>
+          <span class="chip-tag"><i class="fa-solid fa-check text-emerald"></i> RBI Repo Transmission</span>
+          <span class="chip-tag"><i class="fa-solid fa-check text-emerald"></i> PPF & SSY EEE Rules</span>
+        </div>
+
+        <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(212,175,55,0.2); padding-top:16px;">
+          <span style="font-size:0.76rem; color:#94A3B8;">Built with Institutional Authority & AI Precision</span>
+          <button class="open-api-key-btn" style="background:none; border:none; color:#D4AF37; font-size:0.78rem; cursor:pointer; text-decoration:underline;">
+            <i class="fa-solid fa-gear"></i> AI Settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. AI FINANCIAL ASSISTANT (CORE HIGHLIGHT SECTION)
+       ========================================================================= -->
+  <section class="section-padding" id="ai-assistant" style="background: #040C1A;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tagline"><i class="fa-solid fa-brain"></i> Institutional Artificial Intelligence</span>
+        <h2 class="section-heading">AI Financial Assistant Terminal</h2>
+        <p class="section-description" style="margin: 0 auto;">
+          Consult our high-level financial intelligence engine. Ask complex questions regarding Indian taxation, mutual funds, loans, government welfare schemes, CIBIL optimization, and personal budgeting.
+        </p>
+        <div class="royal-divider">
+          <img src="assets/chakra.svg" class="chakra-icon" alt="Chakra">
+        </div>
+      </div>
+
+      <!-- AI Terminal Container -->
+      <div class="ai-terminal-wrapper" id="aiTerminalWrapper">
+        <!-- Terminal Nav & Mode Switcher -->
+        <div class="terminal-nav">
+          <div class="terminal-mode-selector">
+            <button class="mode-btn active" data-mode="general">
+              <i class="fa-solid fa-globe"></i> All-in-One Advisor
+            </button>
+            <button class="mode-btn" data-mode="tax">
+              <i class="fa-solid fa-file-invoice-dollar"></i> Tax Optimizer
+            </button>
+            <button class="mode-btn" data-mode="investment">
+              <i class="fa-solid fa-chart-pie"></i> Mutual Funds & SIP
+            </button>
+            <button class="mode-btn" data-mode="schemes">
+              <i class="fa-solid fa-landmark"></i> Scheme Matcher
+            </button>
+          </div>
+
+          <div class="terminal-controls">
+            <button class="terminal-action-btn" id="newChatBtn" title="Start New Conversation">
+              <i class="fa-solid fa-plus"></i> <span>New</span>
+            </button>
+            <button class="terminal-action-btn" id="exportChatBtn" title="Export Transcript as TXT">
+              <i class="fa-solid fa-download"></i> <span>Export</span>
+            </button>
+            <button class="terminal-action-btn" id="clearChatBtn" title="Clear Conversation History">
+              <i class="fa-regular fa-trash-can"></i> <span>Clear</span>
+            </button>
+            <button class="terminal-action-btn" id="fullscreenToggleBtn" title="Toggle Fullscreen Mode">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages Flow -->
+        <div class="chat-messages-container" id="chatMessagesContainer">
+          <!-- Rendered dynamically by ai-terminal.js -->
+        </div>
+
+        <!-- Terminal Input Deck -->
+        <div class="terminal-input-deck">
+          <!-- Quick Prompt Pills Bar -->
+          <div class="quick-prompts-bar">
+            <button class="quick-prompt-pill" data-prompt="Compare Old vs New Tax Regime for ₹12 Lakh salary">
+              ⚖️ Old vs New Tax Regime
+            </button>
+            <button class="quick-prompt-pill" data-prompt="How much wealth will ₹15,000 monthly SIP create in 15 years?">
+              📈 15×15×15 SIP Rule
+            </button>
+            <button class="quick-prompt-pill" data-prompt="How to save 40% interest on a Home Loan with prepayments?">
+              🏠 Home Loan Prepayment Trick
+            </button>
+            <button class="quick-prompt-pill" data-prompt="Explain Sukanya Samriddhi Yojana vs PPF comparison">
+              👧 SSY vs PPF Comparison
+            </button>
+            <button class="quick-prompt-pill" data-prompt="How should I divide my ₹60,000 monthly salary using 50/30/20 rule?">
+              📊 50/30/20 Budgeting Plan
+            </button>
+            <button class="quick-prompt-pill" data-prompt="What should I do immediately if money is debited via UPI fraud?">
+              🚨 UPI Fraud Helpline 1930
+            </button>
+          </div>
+
+          <!-- Chat Input Form -->
+          <form class="chat-input-form" id="chatForm">
+            <input type="text" id="chatInput" class="chat-input-field" placeholder="Ask any financial question in English (e.g. tax, loans, SIP, schemes)..." autocomplete="off" required>
+            <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send financial query">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:0.72rem; color:#64748B;">
+            <span><i class="fa-solid fa-shield-halved text-emerald"></i> End-to-end client encryption. Never share passwords or OTPs.</span>
+            <button class="open-api-key-btn" style="background:none; border:none; color:#D4AF37; cursor:pointer; font-size:0.74rem;">
+              <i class="fa-solid fa-sliders"></i> AI Backend Settings
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. FINANCIAL TOOLS SECTION (10 INTERACTIVE CALCULATORS)
+       ========================================================================= -->
+  <section class="section-padding" id="calculators">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tagline"><i class="fa-solid fa-calculator"></i> Quantitative Precision</span>
+        <h2 class="section-heading">Interactive Financial Tools</h2>
+        <p class="section-description" style="margin: 0 auto;">
+          Make data-driven financial choices with 10 interactive calculators equipped with Indian Rupee formatting, visual charts, and exact legislative formulas.
+        </p>
+        <div class="royal-divider">
+          <img src="assets/chakra.svg" class="chakra-icon" alt="Chakra">
+        </div>
+      </div>
+
+      <!-- Calculator Navigation Tabs -->
+      <div class="calculators-tabs-nav" role="tablist">
+        <button class="calc-tab-btn active" data-target="calc-sip" role="tab">1. SIP</button>
+        <button class="calc-tab-btn" data-target="calc-emi" role="tab">2. EMI</button>
+        <button class="calc-tab-btn" data-target="calc-ci" role="tab">3. Compound Interest</button>
+        <button class="calc-tab-btn" data-target="calc-tax" role="tab">4. Income Tax</button>
+        <button class="calc-tab-btn" data-target="calc-fd" role="tab">5. FD</button>
+        <button class="calc-tab-btn" data-target="calc-rd" role="tab">6. RD</button>
+        <button class="calc-tab-btn" data-target="calc-retirement" role="tab">7. Retirement</button>
+        <button class="calc-tab-btn" data-target="calc-inflation" role="tab">8. Inflation</button>
+        <button class="calc-tab-btn" data-target="calc-lumpsum" role="tab">9. Lumpsum</button>
+        <button class="calc-tab-btn" data-target="calc-salary" role="tab">10. Salary CTC</button>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 1: SIP CALCULATOR
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel active" id="calc-sip">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Systematic Investment Plan (SIP) Calculator</h3>
+            <p>Determine wealth generated over time via disciplined monthly mutual fund investments.</p>
+          </div>
+          <button class="calc-reset-btn" onclick="document.getElementById('sip-amount').value=10000; document.getElementById('sip-amount-range').value=10000; calculateSIP();">
+            <i class="fa-solid fa-rotate-right"></i> Reset Default
+          </button>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <!-- Monthly Investment -->
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label"><i class="fa-solid fa-indian-rupee-sign text-saffron"></i> Monthly Investment</span>
+                <input type="number" id="sip-amount" class="input-val-box" value="10000" min="500" max="1000000" step="500">
+              </div>
+              <input type="range" id="sip-amount-range" class="calc-slider" min="500" max="200000" step="500" value="10000">
+              <div class="calc-slider-scale"><span>₹500</span><span>₹1,00,000</span><span>₹2,00,000</span></div>
+            </div>
+
+            <!-- Expected Return Rate -->
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label"><i class="fa-solid fa-percent text-gold-gradient"></i> Expected Annual Return (p.a.)</span>
+                <input type="number" id="sip-rate" class="input-val-box" value="12" min="1" max="30" step="0.5">
+              </div>
+              <input type="range" id="sip-rate-range" class="calc-slider" min="5" max="25" step="0.5" value="12">
+              <div class="calc-slider-scale"><span>5% (Debt)</span><span>12% (Index)</span><span>25% (Aggressive)</span></div>
+            </div>
+
+            <!-- Time Period -->
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label"><i class="fa-regular fa-calendar-days text-emerald"></i> Investment Period (Years)</span>
+                <input type="number" id="sip-years" class="input-val-box" value="10" min="1" max="40" step="1">
+              </div>
+              <input type="range" id="sip-years-range" class="calc-slider" min="1" max="35" step="1" value="10">
+              <div class="calc-slider-scale"><span>1 Year</span><span>15 Years</span><span>35 Years</span></div>
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Expected Total Maturity Value</div>
+              <div class="result-highlight-val" id="sip-result-total">₹23,23,391</div>
+              <div style="font-size:0.8rem; color:#D4AF37; margin-top:4px;" id="sip-result-words">23.23 Lakhs</div>
+            </div>
+
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Invested Amount</div>
+                <div class="metric-val text-saffron" id="sip-result-invested">₹12,00,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Wealth Gained</div>
+                <div class="metric-val text-emerald" id="sip-result-wealth">₹11,23,391</div>
+              </div>
+            </div>
+
+            <div class="calc-chart-box">
+              <canvas id="sipChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 2: EMI CALCULATOR
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-emi">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Loan EMI Calculator</h3>
+            <p>Calculate your monthly Equated Monthly Installment for Home, Car, or Personal Loans.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label"><i class="fa-solid fa-indian-rupee-sign text-saffron"></i> Loan Principal Amount</span>
+                <input type="number" id="emi-amount" class="input-val-box" value="3000000" step="50000">
+              </div>
+              <input type="range" id="emi-amount-range" class="calc-slider" min="100000" max="15000000" step="50000" value="3000000">
+              <div class="calc-slider-scale"><span>₹1 Lakh</span><span>₹50 Lakhs</span><span>₹1.5 Crores</span></div>
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label"><i class="fa-solid fa-percent text-gold-gradient"></i> Annual Interest Rate (% p.a.)</span>
+                <input type="number" id="emi-rate" class="input-val-box" value="8.5" step="0.1">
+              </div>
+              <input type="range" id="emi-rate-range" class="calc-slider" min="6" max="18" step="0.1" value="8.5">
+              <div class="calc-slider-scale"><span>6%</span><span>10%</span><span>18%</span></div>
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label"><i class="fa-regular fa-calendar text-emerald"></i> Loan Tenure (Years)</span>
+                <input type="number" id="emi-tenure" class="input-val-box" value="20" step="1">
+              </div>
+              <input type="range" id="emi-tenure-range" class="calc-slider" min="1" max="30" step="1" value="20">
+              <div class="calc-slider-scale"><span>1 Year</span><span>15 Years</span><span>30 Years</span></div>
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Monthly Loan EMI</div>
+              <div class="result-highlight-val text-saffron" id="emi-result-monthly">₹26,035</div>
+            </div>
+
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Principal Amount</div>
+                <div class="metric-val" id="emi-result-principal">₹30,00,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Total Interest Payable</div>
+                <div class="metric-val text-crimson" id="emi-result-interest">₹32,48,322</div>
+              </div>
+            </div>
+
+            <div class="calc-chart-box">
+              <canvas id="emiChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 3: COMPOUND INTEREST
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-ci">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Compound Interest Calculator</h3>
+            <p>Compute exponential growth with customized compounding frequencies (Quarterly, Half-yearly, Annually).</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Initial Principal (₹)</span>
+                <input type="number" id="ci-principal" class="input-val-box" value="100000" step="10000">
+              </div>
+              <input type="range" id="ci-principal-range" class="calc-slider" min="10000" max="5000000" step="10000" value="100000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Annual Interest Rate (%)</span>
+                <input type="number" id="ci-rate" class="input-val-box" value="8" step="0.25">
+              </div>
+              <input type="range" id="ci-rate-range" class="calc-slider" min="1" max="25" step="0.25" value="8">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Tenure (Years)</span>
+                <input type="number" id="ci-years" class="input-val-box" value="5">
+              </div>
+              <input type="range" id="ci-years-range" class="calc-slider" min="1" max="30" value="5">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Compounding Frequency</span>
+                <select id="ci-frequency" class="input-val-box" style="cursor:pointer;">
+                  <option value="4" selected>Quarterly (Standard Banks)</option>
+                  <option value="1">Annually</option>
+                  <option value="2">Half-Yearly</option>
+                  <option value="12">Monthly</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Maturity Amount</div>
+              <div class="result-highlight-val" id="ci-result-maturity">₹1,48,595</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Principal</div>
+                <div class="metric-val" id="ci-result-principal">₹1,00,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Interest Earned</div>
+                <div class="metric-val text-emerald" id="ci-result-interest">₹48,595</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="ciChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 4: INCOME TAX (OLD VS NEW REGIME)
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-tax">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Income Tax Calculator: Old vs. New Regime</h3>
+            <p>Compare tax liability under Section 115BAC (New Regime) and the traditional Old Regime for FY 2024-25 / 2025-26.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Gross Annual Salary (₹)</span>
+                <input type="number" id="tax-income" class="input-val-box" value="1200000" step="50000">
+              </div>
+              <input type="range" id="tax-income-range" class="calc-slider" min="300000" max="5000000" step="50000" value="1200000">
+            </div>
+
+            <div style="font-size:0.8rem; color:#D4AF37; font-weight:700; margin-top:8px;">OLD REGIME DEDUCTIONS:</div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Section 80C (EPF, PPF, ELSS, Life Ins) [Max 1.5L]</span>
+                <input type="number" id="tax-80c" class="input-val-box" value="150000" max="150000">
+              </div>
+              <input type="range" id="tax-80c-range" class="calc-slider" min="0" max="150000" step="10000" value="150000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Section 80D (Health Insurance)</span>
+                <input type="number" id="tax-80d" class="input-val-box" value="25000" max="100000">
+              </div>
+              <input type="range" id="tax-80d-range" class="calc-slider" min="0" max="100000" step="5000" value="25000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">HRA Exemption Claimed (₹)</span>
+                <input type="number" id="tax-hra" class="input-val-box" value="0">
+              </div>
+              <input type="range" id="tax-hra-range" class="calc-slider" min="0" max="500000" step="10000" value="0">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Home Loan Interest u/s 24(b) [Max 2L]</span>
+                <input type="number" id="tax-homeloan" class="input-val-box" value="0" max="200000">
+              </div>
+              <input type="range" id="tax-homeloan-range" class="calc-slider" min="0" max="200000" step="10000" value="0">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">NPS u/s 80CCD(1B) [Max ₹50,000]</span>
+                <input type="number" id="tax-nps" class="input-val-box" value="0" max="50000">
+              </div>
+              <input type="range" id="tax-nps-range" class="calc-slider" min="0" max="50000" step="5000" value="0">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Institutional Tax Verdict</div>
+              <div class="result-highlight-val text-emerald" id="tax-result-diff">Calculating...</div>
+              <div style="font-size:0.86rem; color:#CBD5E1; margin-top:6px;" id="tax-regime-advice">Evaluating both regimes</div>
+            </div>
+
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">New Regime Tax (incl 4% Cess)</div>
+                <div class="metric-val text-emerald" id="tax-result-new">₹85,800</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Old Regime Tax (incl 4% Cess)</div>
+                <div class="metric-val text-saffron" id="tax-result-old">₹1,17,000</div>
+              </div>
+            </div>
+
+            <div class="calc-chart-box">
+              <canvas id="taxChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 5: FIXED DEPOSIT (FD)
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-fd">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Fixed Deposit (FD) Calculator</h3>
+            <p>Compute maturity proceeds with standard quarterly compounding used across Indian commercial banks.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Deposit Amount (₹)</span>
+                <input type="number" id="fd-amount" class="input-val-box" value="100000" step="10000">
+              </div>
+              <input type="range" id="fd-amount-range" class="calc-slider" min="10000" max="5000000" step="10000" value="100000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Interest Rate (% p.a.)</span>
+                <input type="number" id="fd-rate" class="input-val-box" value="7.25" step="0.1">
+              </div>
+              <input type="range" id="fd-rate-range" class="calc-slider" min="4" max="10" step="0.1" value="7.25">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Tenure (Years)</span>
+                <input type="number" id="fd-years" class="input-val-box" value="3">
+              </div>
+              <input type="range" id="fd-years-range" class="calc-slider" min="1" max="10" value="3">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Maturity Value</div>
+              <div class="result-highlight-val" id="fd-result-total">₹1,24,012</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Principal</div>
+                <div class="metric-val" id="fd-result-principal">₹1,00,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Total Interest</div>
+                <div class="metric-val text-gold-gradient" id="fd-result-interest">₹24,012</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="fdChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 6: RECURRING DEPOSIT (RD)
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-rd">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Recurring Deposit (RD) Calculator</h3>
+            <p>Determine maturity value for monthly deposits based on Indian Post Office & Bank RD rules.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Monthly Deposit Amount (₹)</span>
+                <input type="number" id="rd-amount" class="input-val-box" value="5000" step="500">
+              </div>
+              <input type="range" id="rd-amount-range" class="calc-slider" min="500" max="100000" step="500" value="5000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Annual Interest Rate (%)</span>
+                <input type="number" id="rd-rate" class="input-val-box" value="7.0" step="0.1">
+              </div>
+              <input type="range" id="rd-rate-range" class="calc-slider" min="4" max="10" step="0.1" value="7.0">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Tenure (Months)</span>
+                <input type="number" id="rd-months" class="input-val-box" value="24">
+              </div>
+              <input type="range" id="rd-months-range" class="calc-slider" min="6" max="120" step="6" value="24">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Maturity Value</div>
+              <div class="result-highlight-val" id="rd-result-total">₹1,29,122</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Invested</div>
+                <div class="metric-val" id="rd-result-principal">₹1,20,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Interest</div>
+                <div class="metric-val text-emerald" id="rd-result-interest">₹9,122</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="rdChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 7: RETIREMENT CALCULATOR
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-retirement">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Retirement Corpus Calculator</h3>
+            <p>Ascertain the exact corpus required to sustain your lifestyle adjusted for inflation and longevity.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Current Age (Years)</span>
+                <input type="number" id="ret-current-age" class="input-val-box" value="30">
+              </div>
+              <input type="range" id="ret-current-age-range" class="calc-slider" min="18" max="55" value="30">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Desired Retirement Age</span>
+                <input type="number" id="ret-retire-age" class="input-val-box" value="60">
+              </div>
+              <input type="range" id="ret-retire-age-range" class="calc-slider" min="45" max="70" value="60">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Current Monthly Expenses (₹)</span>
+                <input type="number" id="ret-monthly-exp" class="input-val-box" value="45000" step="5000">
+              </div>
+              <input type="range" id="ret-monthly-exp-range" class="calc-slider" min="15000" max="300000" step="5000" value="45000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Expected Inflation Rate (% p.a.)</span>
+                <input type="number" id="ret-inflation" class="input-val-box" value="6">
+              </div>
+              <input type="range" id="ret-inflation-range" class="calc-slider" min="4" max="10" value="6">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Target Retirement Corpus</div>
+              <div class="result-highlight-val text-gold-gradient" id="ret-result-corpus">₹5.24 Crores</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Monthly SIP Needed (at 12%)</div>
+                <div class="metric-val text-emerald" id="ret-result-sip">₹15,200</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Monthly Expense at Age 60</div>
+                <div class="metric-val text-saffron" id="ret-result-monthly-exp">₹2,58,450</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="retChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 8: INFLATION CALCULATOR
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-inflation">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Inflation & Purchasing Power Calculator</h3>
+            <p>Observe how Indian headline inflation impacts your future living costs and purchasing power.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Present Cost / Expenditure (₹)</span>
+                <input type="number" id="inf-amount" class="input-val-box" value="50000" step="5000">
+              </div>
+              <input type="range" id="inf-amount-range" class="calc-slider" min="5000" max="500000" step="5000" value="50000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Inflation Rate (% p.a.)</span>
+                <input type="number" id="inf-rate" class="input-val-box" value="6" step="0.5">
+              </div>
+              <input type="range" id="inf-rate-range" class="calc-slider" min="3" max="12" step="0.5" value="6">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Number of Years in Future</span>
+                <input type="number" id="inf-years" class="input-val-box" value="15">
+              </div>
+              <input type="range" id="inf-years-range" class="calc-slider" min="1" max="40" value="15">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Future Cost Required</div>
+              <div class="result-highlight-val text-crimson" id="inf-result-future">₹1,19,828</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Present Value</div>
+                <div class="metric-val" id="inf-result-present">₹50,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Cost Surge Due to Inflation</div>
+                <div class="metric-val text-crimson" id="inf-result-increase">₹69,828</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="infChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 9: LUMPSUM INVESTMENT
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-lumpsum">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Lumpsum Investment Calculator</h3>
+            <p>Determine wealth compounding for one-time investments across stocks, gold, or mutual funds.</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Total One-Time Investment (₹)</span>
+                <input type="number" id="lump-amount" class="input-val-box" value="100000" step="10000">
+              </div>
+              <input type="range" id="lump-amount-range" class="calc-slider" min="10000" max="5000000" step="10000" value="100000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Expected CAGR (% p.a.)</span>
+                <input type="number" id="lump-rate" class="input-val-box" value="12" step="0.5">
+              </div>
+              <input type="range" id="lump-rate-range" class="calc-slider" min="4" max="25" step="0.5" value="12">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Investment Duration (Years)</span>
+                <input type="number" id="lump-years" class="input-val-box" value="10">
+              </div>
+              <input type="range" id="lump-years-range" class="calc-slider" min="1" max="30" value="10">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Future Value</div>
+              <div class="result-highlight-val text-gold-gradient" id="lump-result-total">₹3,10,585</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Invested</div>
+                <div class="metric-val" id="lump-result-principal">₹1,00,000</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Wealth Gain</div>
+                <div class="metric-val text-emerald" id="lump-result-wealth">₹2,10,585</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="lumpChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------
+           CALCULATOR 10: SALARY CTC TO IN-HAND CALCULATOR
+           ------------------------------------------------------------------- -->
+      <div class="calculator-panel" id="calc-salary">
+        <div class="calc-header">
+          <div class="calc-title-area">
+            <h3>Salary Calculator: CTC to In-Hand Take-Home</h3>
+            <p>Detailed breakdown of your corporate Cost-to-Company (Basic, HRA, Employee EPF, and Net In-Hand).</p>
+          </div>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="calc-inputs-column">
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Annual Gross CTC (₹)</span>
+                <input type="number" id="sal-ctc" class="input-val-box" value="1200000" step="50000">
+              </div>
+              <input type="range" id="sal-ctc-range" class="calc-slider" min="300000" max="6000000" step="50000" value="1200000">
+            </div>
+
+            <div class="input-control-group">
+              <div class="input-label-row">
+                <span class="input-label">Annual Variable / Bonus (₹)</span>
+                <input type="number" id="sal-bonus" class="input-val-box" value="100000" step="10000">
+              </div>
+              <input type="range" id="sal-bonus-range" class="calc-slider" min="0" max="1000000" step="10000" value="100000">
+            </div>
+          </div>
+
+          <div class="calc-results-column">
+            <div class="result-card-main">
+              <div class="result-title">Estimated Monthly In-Hand Salary</div>
+              <div class="result-highlight-val text-emerald" id="sal-result-inhand">₹78,400</div>
+            </div>
+            <div class="results-stats-breakdown">
+              <div class="stat-metric-pill">
+                <div class="metric-label">Monthly Gross</div>
+                <div class="metric-val" id="sal-result-gross">₹91,667</div>
+              </div>
+              <div class="stat-metric-pill">
+                <div class="metric-label">Monthly EPF</div>
+                <div class="metric-val text-saffron" id="sal-result-epf">₹4,950</div>
+              </div>
+            </div>
+            <div class="calc-chart-box">
+              <canvas id="salChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. INDIAN FINANCIAL KNOWLEDGE CENTRE (EDUCATIONAL MODULES)
+       ========================================================================= -->
+  <section class="section-padding" id="knowledge-centre" style="background:#050F21;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tagline"><i class="fa-solid fa-graduation-cap"></i> Institutional Financial Literacy</span>
+        <h2 class="section-heading">Indian Financial Knowledge Centre</h2>
+        <p class="section-description" style="margin: 0 auto;">
+          Master the mechanics of Indian regulatory and financial ecosystems. Clear, authoritative, and simplified guides across banking, direct taxes, UPI security, and capital markets.
+        </p>
+        <div class="royal-divider">
+          <img src="assets/chakra.svg" class="chakra-icon" alt="Chakra">
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="knowledge-filters">
+        <button class="knowledge-filter-pill active" data-category="all">All Topics</button>
+        <button class="knowledge-filter-pill" data-category="banking">Banking & RBI</button>
+        <button class="knowledge-filter-pill" data-category="markets">SEBI & Markets</button>
+        <button class="knowledge-filter-pill" data-category="tax">Income Tax</button>
+        <button class="knowledge-filter-pill" data-category="investments">Mutual Funds</button>
+        <button class="knowledge-filter-pill" data-category="planning">Budgeting & Insurance</button>
+        <button class="knowledge-filter-pill" data-category="schemes">Government Savings</button>
+      </div>
+
+      <!-- Knowledge Cards Grid -->
+      <div class="knowledge-grid" id="knowledgeGridContainer">
+        <!-- Rendered by knowledge.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. GOVERNMENT SCHEMES DIRECTORY
+       ========================================================================= -->
+  <section class="section-padding" id="government-schemes">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tagline"><i class="fa-solid fa-landmark"></i> Sovereign Security</span>
+        <h2 class="section-heading">Government Schemes & Welfare Portal</h2>
+        <p class="section-description" style="margin: 0 auto;">
+          Comprehensive repository of sovereign-guaranteed welfare, pension, and small savings schemes backed by the Government of India.
+        </p>
+        <div class="royal-divider">
+          <img src="assets/chakra.svg" class="chakra-icon" alt="Chakra">
+        </div>
+      </div>
+
+      <!-- Statutory Verification Disclaimer Banner -->
+      <div class="schemes-disclaimer-banner">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>Statutory Verification Notice:</strong> Government schemes, eligibility criteria, interest rates, and tax exemptions are subject to periodic revisions by the Ministry of Finance and regulatory gazettes. Always verify current guidelines via the provided official government portals before applying.
+        </div>
+      </div>
+
+      <!-- Scheme Filters -->
+      <div class="knowledge-filters" style="margin-bottom:28px;">
+        <button class="scheme-filter-btn knowledge-filter-pill active" data-filter="all">All Schemes</button>
+        <button class="scheme-filter-btn knowledge-filter-pill" data-filter="girl">Girl Child (SSY)</button>
+        <button class="scheme-filter-btn knowledge-filter-pill" data-filter="pension">Pension & NPS</button>
+        <button class="scheme-filter-btn knowledge-filter-pill" data-filter="insurance">Insurance (PMJJBY/PMSBY)</button>
+        <button class="scheme-filter-btn knowledge-filter-pill" data-filter="senior">Senior Citizens (SCSS)</button>
+        <button class="scheme-filter-btn knowledge-filter-pill" data-filter="savings">Savings & PPF</button>
+      </div>
+
+      <!-- Schemes Grid -->
+      <div class="schemes-grid" id="schemesGridContainer">
+        <!-- Rendered by schemes.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. MARKET INSIGHTS DASHBOARD
+       ========================================================================= -->
+  <section class="section-padding" id="market-insights" style="background:#040E1E;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tagline"><i class="fa-solid fa-chart-line"></i> Capital Markets & Commodities</span>
+        <h2 class="section-heading">Market Insights Dashboard</h2>
+        <p class="section-description" style="margin: 0 auto;">
+          Real-time synced updates across benchmark Indian indices, gold, silver, sector heatmaps, and verified regulatory notifications.
+        </p>
+        <div class="royal-divider">
+          <img src="assets/chakra.svg" class="chakra-icon" alt="Chakra">
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; font-size:0.82rem; color:#94A3B8;">
+        <span><i class="fa-regular fa-clock text-gold-gradient"></i> Last Updated: <strong id="marketLastUpdatedTime" style="color:#FFF;">Loading...</strong></span>
+        <span><i class="fa-solid fa-circle text-emerald" style="font-size:0.6rem;"></i> Live System Sync</span>
+      </div>
+
+      <!-- Major Indices Grid (NIFTY, SENSEX, BANK NIFTY, NIFTY IT) -->
+      <div class="market-dashboard-grid" id="majorIndicesContainer">
+        <!-- Injected via market.js -->
+      </div>
+
+      <!-- Chart & Sector Analytics -->
+      <div class="market-analytics-row">
+        <!-- NIFTY 50 Performance Chart -->
+        <div class="market-chart-card">
+          <div class="chart-card-header">
+            <div>
+              <h4 style="font-family:var(--font-royal); font-size:1.1rem; color:#FFF;">NIFTY 50 Benchmark Trend</h4>
+              <p style="font-size:0.78rem; color:#94A3B8;">National Stock Exchange of India (NSE)</p>
+            </div>
+            <div class="chart-timeframe-btns">
+              <button class="tf-btn active" data-tf="1D">1D</button>
+              <button class="tf-btn" data-tf="1M">1M</button>
+              <button class="tf-btn" data-tf="1Y">1Y</button>
+              <button class="tf-btn" data-tf="5Y">5Y</button>
+            </div>
+          </div>
+          <div style="height: 270px; width:100%;">
+            <canvas id="marketIndexCanvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Sector Performance Heatmap -->
+        <div class="sector-heatmap-card">
+          <h4 style="font-family:var(--font-royal); font-size:1.1rem; color:#FFF; margin-bottom:14px;">Sectoral Trajectory</h4>
+          <div class="sector-list" id="sectorHeatmapContainer">
+            <!-- Injected via market.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Regulatory & Financial News Feed -->
+      <div style="margin-top: 40px;">
+        <h3 style="font-family:var(--font-royal); font-size:1.4rem; color:var(--color-gold-bright); margin-bottom:20px; border-bottom:1px solid rgba(212,175,55,0.2); padding-bottom:10px;">
+          <i class="fa-regular fa-newspaper"></i> Verified Institutional & Economic Circulars
+        </h3>
+        <div class="news-stream-grid" id="financialNewsContainer">
+          <!-- Injected via market.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. ABOUT US & MISSION SECTION
+       ========================================================================= -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tagline"><i class="fa-solid fa-handshake"></i> Independence & Integrity</span>
+        <h2 class="section-heading">About Paisa Pe Charcha</h2>
+        <p class="section-description" style="margin: 0 auto;">
+          An independent private Indian financial intelligence platform bridging institutional expertise and citizen financial empowerment.
+        </p>
+        <div class="royal-divider">
+          <img src="assets/chakra.svg" class="chakra-icon" alt="Chakra">
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:28px;">
+        <div class="knowledge-card">
+          <div class="knowledge-badge-row">
+            <span class="knowledge-category-tag">Our Vision</span>
+            <div class="knowledge-authority-icon"><i class="fa-solid fa-eye"></i></div>
+          </div>
+          <h4 class="knowledge-title">Democratizing Financial Wisdom</h4>
+          <p class="knowledge-summary">Every Indian citizen deserves unbiased, algorithmically verified, and legally sound financial guidance without high advisory fees or distributor conflict of interest.</p>
+        </div>
+
+        <div class="knowledge-card">
+          <div class="knowledge-badge-row">
+            <span class="knowledge-category-tag">Our Architecture</span>
+            <div class="knowledge-authority-icon"><i class="fa-solid fa-microchip"></i></div>
+          </div>
+          <h4 class="knowledge-title">Autonomous AI Financial Terminal</h4>
+          <p class="knowledge-summary">Combining deep institutional knowledge of Indian statutory frameworks with state-of-the-art AI reasoning to deliver answers in plain, understandable English.</p>
+        </div>
+
+        <div class="knowledge-card">
+          <div class="knowledge-badge-row">
+            <span class="knowledge-category-tag">Zero Compromise</span>
+            <div class="knowledge-authority-icon"><i class="fa-solid fa-lock"></i></div>
+          </div>
+          <h4 class="knowledge-title">Privacy & Security First</h4>
+          <p class="knowledge-summary">No financial transactions, no storing of bank credentials, and zero sale of personal user data. Clean, objective intelligence built solely for your financial strength.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. STATUTORY ROYAL FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand-col">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <img src="assets/logo.svg" alt="Paisa Pe Charcha" style="width:48px; height:48px;">
+            <div>
+              <span style="font-family:var(--font-royal); font-weight:800; font-size:1.3rem; background:var(--grad-gold-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">PAISA PE CHARCHA</span>
+              <p style="font-size:0.72rem; color:#94A3B8; margin:0; text-transform:uppercase;">Your Intelligent Partner in Financial Decisions</p>
+            </div>
+          </div>
+          <p>
+            Paisa Pe Charcha is India's premier independent AI-powered financial intelligence and literacy platform. Designed with royal dignity and technological excellence.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://t.me" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Home</a></li>
+            <li><a href="#ai-assistant"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> AI Financial Terminal</a></li>
+            <li><a href="#calculators"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> 10 Financial Calculators</a></li>
+            <li><a href="#knowledge-centre"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Knowledge Centre</a></li>
+            <li><a href="#government-schemes"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Government Schemes</a></li>
+            <li><a href="#market-insights"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Market Insights</a></li>
+          </ul>
+        </div>
+
+        <!-- Financial Education Links -->
+        <div>
+          <h4 class="footer-heading">Financial Education</h4>
+          <ul class="footer-links-list">
+            <li><a href="#calculators"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Old vs New Tax Regime</a></li>
+            <li><a href="#calculators"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> SIP & Compounding Guide</a></li>
+            <li><a href="#knowledge-centre"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> RBI Repo Rate Impact</a></li>
+            <li><a href="#knowledge-centre"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> SEBI SCORES Dispute Portal</a></li>
+            <li><a href="#government-schemes"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Sukanya Samriddhi Yojana</a></li>
+            <li><a href="#government-schemes"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:#D4AF37;"></i> Public Provident Fund (PPF)</a></li>
+          </ul>
+        </div>
+
+        <!-- Institutional Helplines & Newsletter -->
+        <div>
+          <h4 class="footer-heading">National Helplines</h4>
+          <div class="footer-helpline-box">
+            <div class="helpline-item">
+              <span>National Cyber Crime:</span>
+              <span class="helpline-num">1930</span>
+            </div>
+            <div class="helpline-item">
+              <span>Senior Citizen Helpline:</span>
+              <span class="helpline-num">14567</span>
+            </div>
+            <div class="helpline-item">
+              <span>SEBI Toll Free Helpline:</span>
+              <span class="helpline-num">1800 22 7575</span>
+            </div>
+            <div class="helpline-item">
+              <span>RBI Consumer Education:</span>
+              <span class="helpline-num">14440</span>
+            </div>
+          </div>
+
+          <form id="newsletterForm" style="margin-top:18px;">
+            <p style="font-size:0.78rem; color:#94A3B8; margin-bottom:8px;">Subscribe to the Financial Intelligence Digest:</p>
+            <div style="display:flex; gap:6px;">
+              <input type="email" id="newsletterEmail" placeholder="Your email address" style="flex:1; background:#0B1C38; border:1px solid rgba(212,175,55,0.3); border-radius:4px; padding:8px 12px; color:#FFF; font-size:0.82rem;" required>
+              <button type="submit" style="background:var(--grad-gold); border:none; border-radius:4px; padding:0 14px; font-weight:700; color:#061326; cursor:pointer;">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Mandatory Statutory Platform Disclaimer -->
+      <div class="footer-disclaimer-box">
+        <strong>LEGAL DISCLAIMER & STATUTORY NOTICE:</strong><br>
+        Paisa Pe Charcha is an independent financial education and AI assistance platform. Information provided is for educational purposes and does not constitute personalized financial, investment, tax, or legal advice. Please consult a qualified professional before making financial decisions. Paisa Pe Charcha is a private independent intelligence platform and does not claim official government affiliation, government ownership, or Reserve Bank of India (RBI) approval.
+      </div>
+
+      <!-- Copyright & Bottom Links -->
+      <div class="footer-bottom-row">
+        <span>© 2024–2026 Paisa Pe Charcha. All Rights Reserved. Built with Royal Indian Aesthetics & Modern AI.</span>
+        <div style="display:flex; gap:16px;">
+          <a href="#about" style="color:#94A3B8;">Privacy Policy</a>
+          <a href="#about" style="color:#94A3B8;">Terms and Conditions</a>
+          <a href="#about" style="color:#94A3B8;">Editorial Guidelines</a>
+          <a href="#about" style="color:#94A3B8;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       12. MODALS (KNOWLEDGE READING, AUTH, API KEY SETTINGS)
+       ========================================================================= -->
+  <!-- Knowledge Reading Modal -->
+  <div class="modal-overlay" id="knowledgeModalOverlay" role="dialog" aria-modal="true" aria-labelledby="knowledgeModalTitle">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" id="knowledgeModalCloseBtn" aria-label="Close reading view">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div style="margin-bottom:16px;">
+        <span id="knowledgeModalAuthority" style="font-size:0.76rem; font-weight:700; color:#FF7722; text-transform:uppercase; letter-spacing:1px;"></span>
+        <h3 id="knowledgeModalTitle" style="font-family:var(--font-royal); font-size:1.6rem; color:#FFF; margin-top:6px;"></h3>
+        <div style="width:50px; height:2px; background:var(--color-gold-base); margin-top:10px;"></div>
+      </div>
+      <div id="knowledgeModalBody" style="font-size:0.95rem; line-height:1.75; color:#CBD5E1;"></div>
+    </div>
+  </div>
+
+  <!-- Login / Sign Up Modal -->
+  <div class="modal-overlay" id="authModalOverlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-content-card" style="max-width:440px;">
+      <button class="modal-close-btn" id="closeAuthBtn" aria-label="Close Auth Dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div style="text-align:center; margin-bottom:24px;">
+        <img src="assets/logo.svg" alt="Paisa Pe Charcha" style="width:48px; height:48px; margin:0 auto 10px auto;">
+        <h3 id="authModalTitle" style="font-family:var(--font-royal); font-size:1.4rem; color:var(--color-gold-bright);">Log In to Paisa Pe Charcha</h3>
+        <p style="font-size:0.82rem; color:#94A3B8; margin-top:4px;">Access your saved calculations, portfolios, and AI chats</p>
+      </div>
+
+      <form id="authForm" style="display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <label style="font-size:0.82rem; color:#CBD5E1; margin-bottom:4px; display:block;">Email Address</label>
+          <input type="email" id="authEmail" placeholder="you@domain.com" style="width:100%; background:#040E1E; border:1px solid rgba(212,175,55,0.3); border-radius:6px; padding:10px 14px; color:#FFF;" required>
+        </div>
+        <div>
+          <label style="font-size:0.82rem; color:#CBD5E1; margin-bottom:4px; display:block;">Password</label>
+          <input type="password" id="authPassword" placeholder="••••••••" style="width:100%; background:#040E1E; border:1px solid rgba(212,175,55,0.3); border-radius:6px; padding:10px 14px; color:#FFF;" required>
+        </div>
+        <button type="submit" id="authSubmitBtn" class="btn-hero-primary" style="justify-content:center; width:100%; padding:12px; margin-top:8px;">
+          Access AI Terminal
+        </button>
+      </form>
+
+      <div style="text-align:center; margin-top:18px; font-size:0.82rem; color:#94A3B8;" id="authTogglePrompt">
+        New to Paisa Pe Charcha? <a href="#" id="authToggleLink" style="color:#D4AF37; text-decoration:underline;">Create free account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Settings Modal -->
+  <div class="modal-overlay" id="apiKeyModalOverlay" role="dialog" aria-modal="true">
+    <div class="modal-content-card" style="max-width:520px;">
+      <button class="modal-close-btn" id="closeApiKeyBtn" aria-label="Close API Key Settings">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div style="margin-bottom:18px;">
+        <span style="font-size:0.76rem; font-weight:700; color:#FF7722; text-transform:uppercase; letter-spacing:1px;">Backend Architecture</span>
+        <h3 style="font-family:var(--font-royal); font-size:1.4rem; color:var(--color-gold-bright); margin-top:4px;">AI Model Configuration</h3>
+        <p style="font-size:0.84rem; color:#94A3B8; margin-top:6px; line-height:1.6;">
+          Paisa Pe Charcha runs a specialized <strong>Indian Financial Reasoning Engine</strong> out of the box with zero setup. You can also connect your own Google Gemini API key below for live external reasoning.
+        </p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <label style="font-size:0.84rem; color:#E2E8F0; margin-bottom:6px; display:block;">Custom Google Gemini API Key (Optional)</label>
+          <input type="password" id="customApiKeyInput" placeholder="AIzaSy..." style="width:100%; background:#040E1E; border:1px solid rgba(212,175,55,0.4); border-radius:6px; padding:10px 14px; color:#FFF; font-family:monospace;">
+          <p style="font-size:0.74rem; color:#64748B; margin-top:4px;">Your key is kept strictly in your local browser session and routed through the secure backend.</p>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <button id="saveApiKeyBtn" class="btn-hero-primary" style="flex:1; justify-content:center; padding:10px;">
+            Save & Connect
+          </button>
+          <button id="clearApiKeyBtn" class="btn-outline-gold" style="padding:10px;">
+            Reset to Built-in Engine
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/ai-terminal.js"></script>
+  <script src="js/calculators.js"></script>
+  <script src="js/knowledge.js"></script>
+  <script src="js/schemes.js"></script>
+  <script src="js/market.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
